@@ -1,0 +1,18 @@
+{
+  "name": "angular-multi-select",
+  "main": "angular-multi-select.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/vasekd/angular-multi-select",
+  "authors": [
+    "Vaclav Dovrtel <vaclav.dovrtel@gmail.com>"
+  ],
+  "description": "A multiple-select widget for AngularJS.",
+  "keywords": [
+    "angular",
+    "multi-select",
+    "select",
+    "multi-column"
+  ],
+  "license": "MIT",
+  "ignore": []
+}

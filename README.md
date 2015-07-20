@@ -1,6 +1,8 @@
 angular-multi-select
 ========================
 
+Added: bower configuration
+
 A multiple-select widget for AngularJS.
 
 Mobile friendly: Uses checkboxes rather than &lt;input type="multiple"&gt; for each selection side. 
