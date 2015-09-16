@@ -90,3 +90,8 @@
 .multiSelect .btn.mover.right-all .icon-chevron-right.second {
     margin-left: -7px;
 }
+
+.multiSelect .availableList,
+.multiSelect .selectedList {
+   overflow: auto;
+}
