@@ -44,7 +44,7 @@
                         angular.forEach(original, function (entity) {
                             var match = false;
                             for (var i = 0; i < toFilter.length; i++) {
-                                if (scope.renderItem(toFilter[i]) == scope.renderItem(entity)) {
+                                if (scope.identifyItem(toFilter[i]) == scope.identifyItem(entity)) {
                                     match = true;
                                     break;
                                 }
@@ -81,12 +81,12 @@
                     };
 
                     scope.add = function () {
-                        if (!scope.model.length)
+                        if (!scope.model.length && (scope.model.length !==0))
                             scope.model = [];
                         scope.model = scope.model.concat(scope.selected(scope.selected.available));
                     };
                     scope.addAll = function () {
-                        if (!scope.model.length) {
+                        if (!scope.model.length && (scope.model.length !==0)) {
                             scope.model = [];
                         }
                         scope.model = scope.model.concat(scope.available);
@@ -147,6 +147,10 @@
                         return parseExpression(item, attrs.display);
                     };
 
+                    scope.identifyItem = function (item) {
+                        return parseExpression(item, attrs.identify);
+                    };
+
                     scope.renderTitle = function (item) {
                         if (attrs.title) {
                             return parseExpression(item, attrs.title);
@@ -182,7 +186,7 @@
             '{{ availableLabel==""?"": "(" +available.length +")" }}</label>' +
             '<input ng-model="searchAvailable" class="search" placeholder="{{availablePlaceholder}}">' +
                 '<ul class = "availableList">' +
-                    '<li ng-repeat="entity in available|filter:searchAvailable" ng-class="{\'selected\':selected.available[$index].selected}">' +
+                    '<li ng-repeat="entity in available|filter:searchAvailable track by $index" ng-class="{\'selected\':selected.available[$index].selected}">' +
                         '<label class="checkbox" title="{{ renderTitle(entity) }}">' +
                             '<input type="checkbox" ng-model="selected.available[$index].selected"> ' +
                          '{{ renderItem(entity) }}' +
@@ -192,31 +196,30 @@
             '</div>' +
 
             '<div class="select buttons">' +
-                '<button class="btn mover left" ng-click="remove()" title="Remove selected" ' +
-                    'ng-disabled="!selected(selected.current).length">' +
-                    '<span class="icon-chevron-left"></span>' +
-                '</button>' +
-                '<button class="btn mover left-all" ng-click="removeAll()" title="Remove selected" ' +
-                    'ng-disabled="!model.length">' +
-                    '<span class="icon-chevron-left first"></span>' +
-                    '<span class="icon-chevron-left second"></span>' +
-                '</button>' +
                 '<button class="btn mover right" ng-click="add()" title="Add selected" ' +
                     'ng-disabled="!selected(selected.available).length">' +
-                    '<span class="icon-chevron-right"></span>' +
+                    '<span class="fa fa-angle-right"></span>' +
                 '</button>' +
                 '<button class="btn mover right-all" ng-click="addAll()" title="Add selected" ' +
                     'ng-disabled="!available.length">' +
-                    '<span class="icon-chevron-right first"></span>' +
-                    '<span class="icon-chevron-right second"></span>' +
+                    '<span class="fa fa-angle-double-right"></span>' +
                 '</button>' +
+                '<button class="btn mover left" ng-click="remove()" title="Remove selected" ' +
+                    'ng-disabled="!selected(selected.current).length">' +
+                    '<span class="fa fa-angle-left"></span>' +
+                '</button>' +
+                '<button class="btn mover left-all" ng-click="removeAll()" title="Remove selected" ' +
+                    'ng-disabled="!model.length">' +
+                    '<span class="fa fa-angle-double-left"></span>' +
+                '</button>' +
+
                 '</div>' +
             '<div class="select">' +
                 '<label class="control-label" for="multiSelectSelected">{{ selectedLabel }} ' +
                     '{{selectedLabel==""?"":"("+model.length+")"}}</label>' +
                     '<input ng-model="searchSelected" class="search" placeholder="{{selectedPlaceholder}}">' +
                     '<ul class ="selectedList">' +
-                        '<li ng-repeat="entity in model | filter:searchSelected">' +
+                        '<li ng-repeat="entity in model | filter:searchSelected track by $index">' +
                            '<label class="checkbox" title="{{ renderTitle(entity) }}">' +
                                '<input type="checkbox" ng-model="selected.current[$index].selected"> ' +
                                 '{{ renderItem(entity) }}' +
