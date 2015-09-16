@@ -1,6 +1,6 @@
 {
-  "name": "angular-multi-select",
-  "main": "angular-multi-select.js",
+  "name": "angular-multi-select-view",
+  "main": ["angular-multi-select.js", "angular-multi-select.css"],
   "version": "1.0.0",
   "homepage": "https://github.com/vasekd/angular-multi-select",
   "authors": [
