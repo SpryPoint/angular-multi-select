@@ -201,7 +201,7 @@
                     'ng-disabled="!selected(selected.available).length">' +
                     '<span class="fa fa-angle-right"></span>' +
                 '</button>' +
-                '<button class="btn mover right-all" ng-click="addAll()" title="Add selected" ' +
+                '<button class="btn mover right-all" ng-click="addAll()" title="Add all" ' +
                     'ng-disabled="!available.length">' +
                     '<span class="fa fa-angle-double-right"></span>' +
                 '</button>' +
@@ -209,7 +209,7 @@
                     'ng-disabled="!selected(selected.current).length">' +
                     '<span class="fa fa-angle-left"></span>' +
                 '</button>' +
-                '<button class="btn mover left-all" ng-click="removeAll()" title="Remove selected" ' +
+                '<button class="btn mover left-all" ng-click="removeAll()" title="Remove all" ' +
                     'ng-disabled="!model.length">' +
                     '<span class="fa fa-angle-double-left"></span>' +
                 '</button>' +
