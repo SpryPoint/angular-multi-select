@@ -142,6 +142,7 @@
 
                     scope.$watch("available", scope.watchAvailable);
                     scope.$watch("model", scope.watchModel);
+                    scope.$watch("searchAvailable", scope.watchAvailable);
 
                     scope.renderItem = function (item) {
                         return parseExpression(item, attrs.display);
@@ -186,9 +187,9 @@
             '{{ availableLabel==""?"": "(" +available.length +")" }}</label>' +
             '<input ng-model="searchAvailable" class="search" placeholder="{{availablePlaceholder}}">' +
                 '<ul class = "availableList">' +
-                    '<li ng-repeat="entity in available|filter:searchAvailable track by $index" ng-class="{\'selected\':selected.available[$index].selected}">' +
+                    '<li ng-repeat="entity in available|filter:searchAvailable track by $index" ng-class="{\'selected\':entity.selected}">' +
                         '<label class="checkbox" title="{{ renderTitle(entity) }}">' +
-                            '<input type="checkbox" ng-model="selected.available[$index].selected"> ' +
+                            '<input type="checkbox" ng-model="entity.selected"> ' +
                          '{{ renderItem(entity) }}' +
                         '</label>' +
                     '</li>' +
@@ -221,7 +222,7 @@
                     '<ul class ="selectedList">' +
                         '<li ng-repeat="entity in model | filter:searchSelected track by $index">' +
                            '<label class="checkbox" title="{{ renderTitle(entity) }}">' +
-                               '<input type="checkbox" ng-model="selected.current[$index].selected"> ' +
+                               '<input type="checkbox" ng-model="entity.selected"> ' +
                                 '{{ renderItem(entity) }}' +
                           '</label>' +
                         '</li>' +
