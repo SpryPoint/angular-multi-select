@@ -14,5 +14,8 @@
     "multi-column"
   ],
   "license": "MIT",
-  "ignore": []
+  "ignore": [],
+  "dependencies" : {
+    "lodash" : "~3.10.1"
+  }
 }

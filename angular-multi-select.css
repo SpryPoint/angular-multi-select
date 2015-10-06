@@ -3,23 +3,23 @@
     padding-bottom: 10px;
 }
 
-.multiSelect ul {
+/*.multiSelect ul {
   list-style: none;
-}
+}*/
 
 .multiSelect .select {
     margin-right: 20px;
     float: left;
 }
 
-.multiSelect .text {
+/*.multiSelect .text {
     clear: both;
     font-size: 11px;
-}
+}*/
 
-.multiSelect label.checkbox {
+/*.multiSelect label.checkbox {
     margin-bottom: 0;
-}
+}*/
 
 .btn.mover {
     display: block;
@@ -27,32 +27,32 @@
     vertical-align: top;
 }
 
-.btn.mover.left {
+/*.btn.mover.left {
     padding: 6px 8px 6px 6px;
-}
+}*/
 
-.btn.mover.left-all {
+/*.btn.mover.left-all {
     margin-top: 5px;
     padding: 6px 7px;
-}
+}*/
 
-.btn.mover.right {
+/*.btn.mover.right {
     margin-top: 5px;
     padding: 6px 7px;
-}
+}*/
 
-.btn.mover.right-all {
+/*.btn.mover.right-all {
     margin-top: 5px;
     padding: 6px 7px;
-}
+}*/
 
-.buttons.stacked .btn.mover {
+/*.buttons.stacked .btn.mover {
     margin: 0 0 10px 0;
-}
+}*/
 
-.btn.mover.left i, .btn.mover.right i {
+/*.btn.mover.left i, .btn.mover.right i {
     margin: 0;
-}
+}*/
 
 /* --- */
 
@@ -76,20 +76,20 @@
     margin-top: 100px;
 }
 
-.multiSelect .btn.mover {
+/*.multiSelect .btn.mover {
     width: 35px;
     background: #458ebf none;
     border: none transparent;
-}
+}*/
 
-.multiSelect .btn.mover span {
+/*.multiSelect .btn.mover span {
     color: #d8e7f1;
-}
+}*/
 
-.multiSelect .btn.mover.left-all .icon-chevron-left.second,
+/*.multiSelect .btn.mover.left-all .icon-chevron-left.second,
 .multiSelect .btn.mover.right-all .icon-chevron-right.second {
     margin-left: -7px;
-}
+}*/
 
 .multiSelect .availableList,
 .multiSelect .selectedList {

@@ -40,20 +40,7 @@
 
                     /* Filters out items in original that are also in toFilter. Compares by reference. */
                     function filterOut(original, toFilter) {
-                        var filtered = [];
-                        angular.forEach(original, function (entity) {
-                            var match = false;
-                            for (var i = 0; i < toFilter.length; i++) {
-                                if (scope.identifyItem(toFilter[i]) == scope.identifyItem(entity)) {
-                                    match = true;
-                                    break;
-                                }
-                            }
-                            if (!match) {
-                                filtered.push(entity);
-                            }
-                        });
-                        return filtered;
+                        return _.difference(original, toFilter);
                     }
 
                     function parseExpression(item, expr) {
@@ -199,19 +186,19 @@
             '<div class="select buttons">' +
                 '<button class="btn mover right" ng-click="add()" title="Add selected" ' +
                     'ng-disabled="!selected(selected.available).length">' +
-                    '<span class="fa fa-angle-right"></span>' +
+                    '<span class="glyphicon glyphicon-step-forward"></span>' +
                 '</button>' +
                 '<button class="btn mover right-all" ng-click="addAll()" title="Add all" ' +
                     'ng-disabled="!available.length">' +
-                    '<span class="fa fa-angle-double-right"></span>' +
+                    '<span class="glyphicon glyphicon-fast-forward"></span>' +
                 '</button>' +
                 '<button class="btn mover left" ng-click="remove()" title="Remove selected" ' +
                     'ng-disabled="!selected(selected.current).length">' +
-                    '<span class="fa fa-angle-left"></span>' +
+                    '<span class="glyphicon glyphicon-step-backward"></span>' +
                 '</button>' +
                 '<button class="btn mover left-all" ng-click="removeAll()" title="Remove all" ' +
                     'ng-disabled="!model.length">' +
-                    '<span class="fa fa-angle-double-left"></span>' +
+                    '<span class="glyphicon glyphicon-fast-backward"></span>' +
                 '</button>' +
 
                 '</div>' +
