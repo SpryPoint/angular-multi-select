@@ -40,7 +40,7 @@
 
                     /* Filters out items in original that are also in toFilter. Compares by reference. */
                     function filterOut(original, toFilter) {
-                        return _.difference(original, toFilter);
+                        return difference(original, toFilter);
                     }
 
                     function parseExpression(item, expr) {
@@ -49,6 +49,19 @@
                         ctx[displayComponents[1]] = item;
                         return $parse(displayComponents[2])(ctx);
                     }
+
+                    var difference = function(array){
+                       var rest = Array.prototype.concat.apply(Array.prototype, Array.prototype.slice.call(arguments, 1));
+
+                       var containsEquals = function(obj, target) {
+                        if (obj == null) return false;
+                        return _.any(obj, function(value) {
+                          return _.isEqual(value, target);
+                        });
+                      };
+
+                      return _.filter(array, function(value){ return ! containsEquals(rest, value); });
+                    };
 
                     var requiredMin, inputModel;
 
