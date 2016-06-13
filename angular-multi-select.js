@@ -28,6 +28,7 @@
                     selectedPlaceholder:"@",
                     availablePlaceholder:"@",
                     available: "=",
+                    disabled: "=",
                     model: "=ngModel",
                     config: "="
                 },
@@ -189,7 +190,7 @@
                 '<ul class = "availableList">' +
                     '<li ng-repeat="entity in available|filter:searchAvailable track by $index" ng-class="{\'selected\':entity.selected}">' +
                         '<label class="checkbox" title="{{ renderTitle(entity) }}">' +
-                            '<input type="checkbox" ng-model="entity.selected"> ' +
+                            '<input type="checkbox" ng-disabled="disabled" ng-model="entity.selected"> ' +
                          '{{ renderItem(entity) }}' +
                         '</label>' +
                     '</li>' +
@@ -198,19 +199,19 @@
 
             '<div class="select buttons">' +
                 '<button class="btn mover right" ng-click="add()" title="Add selected" ' +
-                    'ng-disabled="!selected(selected.available).length">' +
+                    'ng-disabled="!selected(selected.available).length || disabled">' +
                     '<span class="glyphicon glyphicon-step-forward"></span>' +
                 '</button>' +
                 '<button class="btn mover right-all" ng-click="addAll()" title="Add all" ' +
-                    'ng-disabled="!available.length">' +
+                    'ng-disabled="!available.length || disabled">' +
                     '<span class="glyphicon glyphicon-fast-forward"></span>' +
                 '</button>' +
                 '<button class="btn mover left" ng-click="remove()" title="Remove selected" ' +
-                    'ng-disabled="!selected(selected.current).length">' +
+                    'ng-disabled="!selected(selected.current).length || disabled">' +
                     '<span class="glyphicon glyphicon-step-backward"></span>' +
                 '</button>' +
                 '<button class="btn mover left-all" ng-click="removeAll()" title="Remove all" ' +
-                    'ng-disabled="!model.length">' +
+                    'ng-disabled="!model.length || disabled">' +
                     '<span class="glyphicon glyphicon-fast-backward"></span>' +
                 '</button>' +
 
@@ -222,7 +223,7 @@
                     '<ul class ="selectedList">' +
                         '<li ng-repeat="entity in model | filter:searchSelected track by $index">' +
                            '<label class="checkbox" title="{{ renderTitle(entity) }}">' +
-                               '<input type="checkbox" ng-model="entity.selected"> ' +
+                               '<input type="checkbox" ng-disabled="disabled" ng-model="entity.selected"> ' +
                                 '{{ renderItem(entity) }}' +
                           '</label>' +
                         '</li>' +
